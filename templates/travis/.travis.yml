@@ -1,0 +1,25 @@
+# Setup the environment:
+sudo: false
+dist: trusty
+cache: bundler
+
+# Setup the compiler:
+language: cpp
+compiler: clang
+
+addons:
+  apt:
+    sources: ["llvm-toolchain-trusty-4.0"]
+    packages: ["clang-4.0"]
+
+env: CC=clang-4.0 CXX=clang++-4.0
+
+# Install required gems:
+install:
+  - rvm use 2.4 --install --binary --fuzzy
+  - gem install teapot --version $TEAPOT_VERSION
+
+# Run tests:
+script:
+  - teapot -c test fetch
+  - teapot -c test build $TEST_TARGET_NAME
