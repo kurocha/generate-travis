@@ -13,11 +13,10 @@ define_target "generate-travis" do |target|
 	target.depends "Generate/Template"
 	target.provides "Generate/Travis"
 	
-	target.build do |test_target_name|
+	target.build do
 		source_path = Build::Files::Directory.new(target.package.path + "templates/travis")
-		substitutions = target.context.substitutions
 		
-		substitutions['TEST_TARGET_NAME'] = test_target_name
+		substitutions = target.context.substitutions
 		
 		generate source: source_path, prefix: target.context.root, substitutions: substitutions
 	end
