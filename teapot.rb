@@ -27,4 +27,6 @@ define_configuration 'generate-travis' do |configuration|
 	configuration.public!
 	
 	configuration.require 'generate-template'
+	
+	configuration.targets[:create] << "Generate/Travis"
 end
