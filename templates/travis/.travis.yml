@@ -85,8 +85,7 @@ matrix:
 
 # Install required gems:
 install:
-  - rvm use 2.4 --install --binary --fuzzy
-  - gem install teapot --version $TEAPOT_VERSION
+  - bundle install --deployment
 
 # Run tests:
 script:
