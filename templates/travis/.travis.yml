@@ -1,7 +1,6 @@
 # Setup the environment:
 sudo: false
 dist: trusty
-cache: bundler
 
 # Setup the compilers:
 matrix:
@@ -85,7 +84,7 @@ matrix:
 
 # Install required gems:
 install:
-  - bundle install --deployment
+  - gem install teapot --version "2.0.0-rc3"
 
 # Run tests:
 script:
